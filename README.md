@@ -20,7 +20,7 @@ This repository contains everything needed to run a local or production instance
 
 ## Overview
 
-![digital-marketing-and-leocdp](digital-marketing-and-leocdp.png "digital-marketing-and-leocdp")
+![cdp-admin-screenshot](docs/cdp-admin-screenshot.png "cdp-admin-screenshot")
 
 LEO CDP Free Edition provides a complete environment to manage customer data, including:
 
@@ -60,12 +60,56 @@ The repository supports **both local development** and **production deployment**
 
 ---
 
+## Basic Deployment Flow
+
+![leocdp-basic-deployment-flow](docs/leocdp-basic-deployment-flow.png "leocdp-basic-deployment-flow")
+
+This architecture illustrates the standard deployment flow for **LEO CDP**, showing how the system components interact across internal networks, APIs, and user interfaces.
+
+The deployment typically involves **three main servers (or containers)** connected through secure TCP ports, fronted by an HAProxy or Nginx layer for routing and isolation.
+
+### 🔹 Core Components
+
+| Component                    | Description                                                                                                                        | Example Host / Port                        |
+| ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| **Data Hub API**             | Collects and processes data from external sources such as Google, Facebook, Zalo, websites, and internal apps.                     | `datahub.example.com` → `192.168.0.2:9080` |
+| **Admin CDP**                | The management dashboard for CDP administrators and business users. Handles analytics, campaign setup, and customer data policies. | `admin.example.com` → `192.168.0.3:9070`   |
+| **LEO Bot Service**          | AI chatbot and content generation engine integrated with the Admin CDP for real-time engagement.                                   | `bot.example.com` → `192.168.0.3:8888`     |
+| **Core Database (ArangoDB)** | The main data store for user profiles, events, and configurations.                                                                 | `192.168.0.5:8600`                         |
+| **Data Backup Folder**       | Stores scheduled backups of the database for redundancy and recovery.                                                              | Cloud or mounted storage                   |
+
+### 🔹 Networking & Routing
+
+* All external and internal traffic passes through **HAProxy / Nginx Proxy**, which routes based on DNS names.
+* Example routing configuration:
+
+  ```
+  datahub.example.com  → 192.168.0.2:9080
+  admin.example.com    → 192.168.0.3:9070
+  bot.example.com      → 192.168.0.3:8888
+  ```
+
+### 🔹 Authentication
+
+* **OpenID Connect (OIDC)** handles authentication between Admin CDP, LEO Bot, and connected third-party systems.
+
+### 🔹 Notes
+
+> The above IPs and domains are **examples only**.
+> Replace them with your **real IP addresses and DNS records** when deploying to production.
+
+---
+
 ## Prerequisites
 
-* Linux or macOS environment
-* Java 11 installed
-* Bash shell for scripts (`#!/bin/bash`)
-* Internet access for CDN and optional LEO Bot API
+Before setting up **LEO CDP**, ensure the following requirements are met:
+
+* **Operating System:** Linux environment (recommended: **Ubuntu 22.04 LTS**).
+* **Java Runtime:** **Java 11 (Amazon Corretto or OpenJDK)** must be installed and available in your system path.
+* **Shell Environment:** Scripts are written for **Bash** (`#!/bin/bash`).
+* **Internet Access:** Required for fetching resources from CDNs and connecting to the optional **LEO Bot API**.
+
+  * To deploy **LEO Bot**, refer to: [https://github.com/trieu/leo-bot](https://github.com/trieu/leo-bot)
 
 ---
 
