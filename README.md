@@ -20,6 +20,8 @@ This repository contains everything needed to run a local or production instance
 
 ## Overview
 
+![digital-marketing-and-leocdp](digital-marketing-and-leocdp.png "digital-marketing-and-leocdp")
+
 LEO CDP Free Edition provides a complete environment to manage customer data, including:
 
 * Admin Dashboard for system management
