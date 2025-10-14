@@ -1,6 +1,7 @@
 # LEO CDP Free Edition
 
 **LEO Customer Data Platform (CDP)** – Free Edition repository.
+
 This repository contains everything needed to run a local or production instance of LEO CDP, including configuration templates, setup scripts, JAR files, and supporting libraries.
 
 ---
@@ -9,12 +10,13 @@ This repository contains everything needed to run a local or production instance
 
 1. [Overview](#overview)
 2. [Repository Structure](#repository-structure)
-3. [Prerequisites](#prerequisites)
-4. [Configuration](#configuration)
-5. [Setup Scripts](#setup-scripts)
-6. [Running LEO CDP](#running-leo-cdp)
-7. [Security Recommendations](#security-recommendations)
-8. [License](#license)
+3. [Basic Deployment Flow](#basic-deployment-flow)
+4. [Prerequisites](#prerequisites)
+5. [Configuration](#configuration)
+6. [Setup Scripts](#setup-scripts)
+7. [Running LEO CDP](#running-leo-cdp)
+8. [Security Recommendations](#security-recommendations)
+9. [Source Code](#source-code)
 
 ---
 
@@ -210,3 +212,9 @@ bash start-data-connector-jobs.sh
 * Enable TLS/SSL for all admin and API domains
 * Rotate secrets regularly and backup your database
 * Use secure SMTP credentials
+
+## Source Code
+
+You can find the full source code and latest updates for the **LEO CDP Framework** on GitHub at the link below:
+
+👉 [https://github.com/trieu/leo-cdp-framework](https://github.com/trieu/leo-cdp-framework)
