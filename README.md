@@ -1,146 +1,166 @@
-<div style="background-color: #F0F8FF; text-align:center; border-radius:8px;">
-	<img src="https://gcore.jsdelivr.net/gh/USPA-Technology/leo-cdp-static-files@latest//images/leo-cdp-logo.png" alt="LEO CDP framework" style="width:640px;margin:auto;"/>
-</div>
+# LEO CDP Free Edition
 
-# LEO CDP – The Open Source AI-first Customer Data Platform
-
-**LEO CDP** is an **Open Source AI-first Customer Data Platform (CDP)** framework that empowers organizations to build and operate their own fully customizable CDP infrastructure — with **machine learning and big data** at its core.
-
-Designed for developers, data scientists, marketers, and enterprises, LEO CDP enables unified data collection, real-time customer analytics, audience segmentation, and personalized marketing — all while remaining **self-hosted and privacy-friendly**.
+**LEO Customer Data Platform (CDP)** – Free Edition repository.
+This repository contains everything needed to run a local or production instance of LEO CDP, including configuration templates, setup scripts, JAR files, and supporting libraries.
 
 ---
 
-# 🚀 Vision & Philosophy
+## Table of Contents
 
-- **The philosophy of Dataism → USPA → LEO CDP**
-- Democratize AI-powered data platforms for **digital transformation**
-- Promote **data sovereignty**, **on-premise intelligence**, and **open collaboration**
-
----
-
-# 🔥 Key Features
-
-1. **Omnichannel Data Collection & Unification**  
-   Collect data from web, mobile, CRM, IoT, POS, social media, and APIs. Unify into rich customer profiles.
-
-2. **Real-Time Customer 360**  
-   Build a complete view of every customer using behavioral, transactional, and third-party data.
-
-3. **AI-based Segmentation & Scoring**  
-   Use clustering, RFM, CLV prediction, churn scoring, and dynamic audiences using ML models.
-
-4. **Behavioral Tracking & Journey Mapping**  
-   Track individual actions and interactions in real time. Map customer journeys across channels.
-
-5. **Predictive Analytics & Insights**  
-   Leverage machine learning pipelines with Jupyter/Colab for real-time insights.
-
-6. **Personalization & Activation**  
-   Using Agentic AI to deliver personalized experiences via email, push, SMS, and content based on customer intent.
-
-7. **Event-Driven Architecture with ETL/ELT**  
-   Built-in Apache Airflow integration to manage data ingestion, transformation, and orchestration.
-
-8. **Plug-in Ecosystem & API-First Design**  
-   Easy to extend, integrate, and automate via REST APIs and modular services.
-
-9. **Data Governance & Privacy**  
-   Built-in consent tracking, GDPR compliance, and on-prem hosting for full control over customer data.
-
-10. **DevOps Ready**  
-   Docker-based deployment, Prometheus + Grafana monitoring, scalable microservice architecture.
+1. [Overview](#overview)
+2. [Repository Structure](#repository-structure)
+3. [Prerequisites](#prerequisites)
+4. [Configuration](#configuration)
+5. [Setup Scripts](#setup-scripts)
+6. [Running LEO CDP](#running-leo-cdp)
+7. [Security Recommendations](#security-recommendations)
+8. [License](#license)
 
 ---
 
-# 🌍 Why Open Source?
+## Overview
 
-- Break away from SaaS lock-in. Full **customization** and **ownership** of your CDP.
-- Ideal for **agencies**, **startups**, **enterprises**, and **researchers** building AI-powered marketing stacks.
-- Open source encourages **transparency**, **innovation**, and **community-driven evolution**.
+LEO CDP Free Edition provides a complete environment to manage customer data, including:
 
----
+* Admin Dashboard for system management
+* Data Hub for observer access
+* LEO Bot for FAQs and content creation
+* Database backup and retention management
+* Messaging through Kafka or local queues
+* Pre-packaged JAR files for core services and jobs
 
-# 📈 Roadmap 2025+
-
-| Feature | Status |
-|--------|--------|
-| ✅ Core CDP Platform (Profiles, Events, Segmentation) | Complete |
-| ✅ CDP SDKs (JavaScript, Python) | Complete |
-| 🔄 Identity Resolution with Graph + Vector Matching | In Progress |
-| 🔄 AI Assistant (Chatbot for Audience Insights & Suggestions) | In Progress |
-| 🔄 Agentic AI: Personalizing the Customer Experience | In Progress |
-| 🔄 Embedding Model for Customer Vector Search (via Qdrant) | In Progress |
-| 🆕 CDP Mobile SDKs (Android, iOS, React Native) | Planned |
-| 🆕 Open Source Campaign Management UI | Planned |
-| 🆕 Integration Marketplace for Martech Tools | Planned |
-| 🆕 Webhook + Event Bus Support (Kafka / RabbitMQ / SQS) | Planned |
-| 🆕 Federated Identity Graph using OpenID & OAuth | Planned |
-
-Want to contribute? [Join the community](https://www.facebook.com/groups/bigdatavietnam.org)!
+The repository supports **both local development** and **production deployment**.
 
 ---
 
-# 🧪 System Demo
+## Repository Structure
 
-- **URL**: https://dcdp.bigdatavietnam.org  
-- **Username**: `demo`  
-- **Password**: `123456`  
-
----
-
-# 📚 Documents
-
-- [🇻🇳 Document bằng tiếng Việt](https://datahub4uspa.leocdp.net/ct/6iSPHWPFzywadKBpq3YJ6n)
-- [🧠 CDP Handbook 2023](https://datahub4uspa.leocdp.net/ct/2HtlqyYdyBjmEPJ4pkZwHZ)
-- [📊 Data Model & Journey Map](https://docs.google.com/spreadsheets/d/1hzSvkmTE8WuvUFqnpWNfsPMzpjF8gYOSJfkc9eJIjWk/edit?usp=sharing)
-- [⚙️ Analytics Core Functions](https://docs.google.com/document/d/1cavhFAs_uX-98qUvtXJI3v859I6h3knl0m_tSQ4235M/edit?usp=sharing)
-- [💡 Data Strategy with LEO CDP](https://docs.google.com/document/d/1la6mP21gfd2bHlpwj4hBTRQlxaPfhnpQRL6fV223Es0/edit?usp=sharing)
-
----
-
-# 🛠️ Tech Stack
-
-- **Backend**: Java 11 (Amazon Corretto), Python 3.10
-- **Database**: ArangoDB 3.11 (Multi-model: Document + Graph + Search)
-- **Monitoring**: Prometheus 2 + Grafana 8
-- **Data Pipeline**: Apache Airflow
-- **Analytics & ML**: Jupyter Notebook / Google Colab
-- **Messaging**: Redis 6, OneSignal, Firebase
-- **Deployment**: Ubuntu 22 LTS, Docker, On-Prem / Cloud
+```
+.
+├── configs/                         # Configuration templates and example metadata
+├── deps/                            # Supporting libraries
+├── devops-script/                   # Utility scripts for deployment and maintenance
+├── airflow-dags/                    # Example Airflow DAGs
+├── resources/                       # Supporting resources
+├── public/                          # Frontend files and static content
+├── static-data/                      # Example static datasets
+├── *.jar                             # Pre-built JARs for LEO services:
+│   ├── leo-main-starter-v_0.9.0.jar
+│   ├── leo-data-processing-starter-v_0.9.0.jar
+│   ├── leo-observer-starter-v_0.9.0.jar
+│   └── leo-scheduler-starter-v_0.9.0.jar
+├── *.sh                              # Setup and startup scripts
+├── sample-leocdp-metadata.properties # Config template
+├── leocdp-metadata.properties        # Generated production metadata
+├── README.md                         # This file
+└── NOTES-FOR-LOCAL-SETUP.md / NOTES-FOR-NEW-SETUP.md
+```
 
 ---
 
-# ☁️ Cloud Options
+## Prerequisites
 
-- Google Cloud, AWS, VNG Cloud, or **your own private infrastructure**
-
----
-
-# 🔧 Installation
-
-See: [Installation Guide](core-leo-cdp/NOTES-FOR-NEW-SETUP.md)
+* Linux or macOS environment
+* Java 11 installed
+* Bash shell for scripts (`#!/bin/bash`)
+* Internet access for CDN and optional LEO Bot API
 
 ---
 
-# 🧑‍💻 Author & License
+## Configuration
 
-Created by: [Trieu Nguyen (Thomas)](https://www.facebook.com/dataism.one)  
-**License**: Open Source - MIT-style.  
-Use freely. Customize. Brand your own white-label CDP. Just respect the original creator 🙏.
+1. **Template File:** `sample-leocdp-metadata.properties`
+2. **Production Config:** `leocdp-metadata.properties` (generated via `setup-leocdp-metadata.sh`)
+
+Key sections:
+
+* **Admin Setup:** Superadmin email, admin dashboard and WebSocket domains, LEO Bot API
+* **SMTP:** Mail server configuration
+* **Database:** Default DB, backup path, period, retention
+* **CDP Defaults:** Runtime environment, build version, profile merge strategy, data models, CDN
+
+**Note:** The production metadata file is added to `.gitignore` automatically to avoid committing sensitive info.
 
 ---
 
-# 💬 Community & Support
+## Setup Scripts
 
-- Bugs or ideas? Email: **trieu@leocdp.com**
-- Join our learning group: [BigDataVietnam.org](https://www.facebook.com/groups/bigdatavietnam.org)
-- YouTube: [@bigdatavn](https://www.youtube.com/@bigdatavn)
-- Blog: [knowledge.leocdp.net](https://knowledge.leocdp.net/)
+### 1. `setup-leocdp-metadata.sh`
+
+Generates `leocdp-metadata.properties` from the template.
+
+**Features:**
+
+* Interactive prompts for all required fields
+* Default values for backup periods and logo if left empty
+* Automatically updates placeholders in template
+* Adds generated file to `.gitignore`
+
+**Usage:**
+
+```bash
+bash setup-leocdp-metadata.sh
+```
 
 ---
 
-# 📜 Historical Proof of Innovation
+### 2. `setup-leocdp-instance.sh` / `setup-leocdp-system.sh`
 
-- [2014 Concept](https://www.facebook.com/photo/?fbid=10158746916044506)
-- [2019 Code Launch](https://www.youtube.com/watch?v=tyASsGaE8jg)
-- [Data-Driven Marketing in Vietnam (2020)](https://www.brandsvietnam.com/congdong/topic/23444)
+Initializes the CDP system:
+
+* Prompts for superadmin password securely (masked input)
+* Confirms password to prevent typos
+* Runs system setup via the main JAR (`leo-main-starter-v_0.9.0.jar`)
+
+**Usage:**
+
+```bash
+bash setup-leocdp-system.sh
+```
+
+---
+
+### 3. Startup & Maintenance Scripts
+
+| Script                         | Purpose                             |
+| ------------------------------ | ----------------------------------- |
+| `start-admin.sh`               | Start Admin Dashboard               |
+| `start-observer.sh`            | Start Data Hub / Observer interface |
+| `start-data-connector-jobs.sh` | Start data processing jobs          |
+| `stop-server.sh`               | Stop all running LEO CDP services   |
+
+---
+
+## Running LEO CDP
+
+1. Generate production metadata:
+
+```bash
+bash setup-leocdp-metadata.sh
+```
+
+2. Initialize system with superadmin credentials:
+
+```bash
+bash setup-leocdp-system.sh
+```
+
+3. Start core services:
+
+```bash
+bash start-admin.sh
+bash start-observer.sh
+bash start-data-connector-jobs.sh
+```
+
+4. Access Admin Dashboard at the domain configured in `leocdp-metadata.properties`.
+
+---
+
+## Security Recommendations
+
+* Use **strong superadmin passwords**
+* Keep `leocdp-metadata.properties` private and out of version control
+* Enable TLS/SSL for all admin and API domains
+* Rotate secrets regularly and backup your database
+* Use secure SMTP credentials

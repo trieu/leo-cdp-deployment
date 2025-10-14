@@ -1,6 +1,6 @@
 #!/bin/sh
 
-LEO_CDP_FOLDER="/build/leo-cdp"
+LEO_CDP_FOLDER="/build/cdp-instance"
 BUILD_VERSION="v_0.9.0"
 HTTP_ROUTER_KEY="leocdp-admin"
 

@@ -28,5 +28,11 @@
 			"host": "cdpsys.redis",
 			"port": 6379
 		}
+	],
+	"agentPubSubQueue": [
+		{
+			"host": "cdpsys.redis",
+			"port": 6379
+		}
 	]
 }

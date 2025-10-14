@@ -1,4 +1,4 @@
 #!/bin/sh
 
 kill -15 $(pgrep -f leo-)
-sleep 3
+sleep 4

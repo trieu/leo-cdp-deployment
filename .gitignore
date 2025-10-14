@@ -29,4 +29,6 @@ public/uploaded-files/
 public/*
 
 devops-script/kafka-docker-production/data
-data
+
+# must exclude this to avoid security risks
+leocdp-metadata.properties
