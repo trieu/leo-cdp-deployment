@@ -2,14 +2,14 @@
 set -e
 
 # --- Metadata ---
-SRC_FILE="sample-leocdp-metadata.properties"
+SRC_FILE="setup-leocdp-metadata-tpl.properties"
 DEST_FILE="leocdp-metadata.properties"
 
 echo "──────────────────────────────────────────────"
 echo "🚀 LEO CDP Production Config Setup"
 echo "──────────────────────────────────────────────"
 
-# --- Check sample file ---
+# --- Check template file ---
 if [ ! -f "$SRC_FILE" ]; then
   echo "❌ Missing template: $SRC_FILE"
   exit 1
