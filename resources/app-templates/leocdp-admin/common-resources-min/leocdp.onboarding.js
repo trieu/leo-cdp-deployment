@@ -1,2 +1,2 @@
-// Version: v_0.9.0_2026-09-17-16-07-01
+// Version: v_0.9.0_2026-10-02-18-23-35
 'use strict';function initMainMenuGuide(){$('[data-toggle\x3d"popover"]').popover({delay:{show:500,hide:100},trigger:"hover"})};
